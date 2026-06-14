@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArenaOne Lahore — Book Your Pitch Online</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --green: #059669;
+      --green-light: #10B981;
+      --green-50: #ECFDF5;
+      --green-100: #D1FAE5;
+      --slate-900: #0F172A;
+      --slate-800: #1E293B;
+      --slate-600: #475569;
+      --slate-400: #94A3B8;
+      --slate-200: #E2E8F0;
+      --slate-100: #F1F5F9;
+      --bg: #F4F6F8;
+      --white: #FFFFFF;
+      --red: #EF4444;
+      --amber: #F59E0B;
+      --radius: 14px;
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.05);
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.10), 0 2px 6px rgba(0, 0, 0, 0.06);
+      --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: var(--bg);
+      color: var(--slate-800);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announce-bar {
+      background: var(--slate-900);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 10px 20px;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      position: relative;
+      z-index: 100;
+    }
+
+    .announce-bar a {
+      color: var(--green-light);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .fire-badge {
+      background: linear-gradient(135deg, #FF6B35, #F43F5E);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-badge {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 0.9;
+        transform: scale(1.03);
+      }
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+      padding: 0 5%;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 66px;
+      gap: 32px;
+    }
+
+    .logo {
+      font-size: 19px;
+      font-weight: 900;
+      color: var(--slate-900);
+      letter-spacing: -0.03em;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .logo-dot {
+      color: var(--green);
+    }
+
+    .logo-badge {
+      font-size: 9px;
+      font-weight: 700;
+      background: var(--green-50);
+      color: var(--green);
+      border: 1px solid var(--green-100);
+      padding: 2px 7px;
+      border-radius: 20px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 8px;
+      align-items: center;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--slate-600);
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .nav-links a:hover {
+      background: var(--slate-100);
+      color: var(--slate-900);
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      font-size: 13.5px;
+      font-weight: 700;
+      padding: 10px 20px !important;
+      border-radius: 10px !important;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s !important;
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .nav-cta:hover {
+      background: #047857 !important;
+      transform: scale(1.04);
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35) !important;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--slate-800);
+      border-radius: 2px;
+      transition: 0.2s;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 5% 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green-50);
+      border: 1px solid var(--green-100);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(34px, 5.5vw, 64px);
+      font-weight: 900;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--slate-900);
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+
+    .hero h1 .accent {
+      color: var(--green);
+    }
+
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 400;
+      color: var(--slate-600);
+      line-height: 1.65;
+      max-width: 600px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 60px;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: white;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: #047857;
+      transform: scale(1.04);
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
+    }
+
+    .btn-ghost {
+      background: white;
+      color: var(--slate-800);
+      font-size: 15px;
+      font-weight: 600;
+      padding: 13px 26px;
+      border-radius: 12px;
+      border: 1.5px solid var(--slate-200);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--slate-400);
+      transform: scale(1.02);
+    }
+
+    .hero-trust {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--slate-500, #64748b);
+    }
+
+    .hero-trust .avatars {
+      display: flex;
+    }
+
+    .hero-trust .avatars span {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      border: 2px solid white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: white;
+      margin-left: -6px;
+    }
+
+    .hero-trust .avatars span:first-child {
+      margin-left: 0;
+    }
+
+    /* ── SCHEDULER SECTION ── */
+    .scheduler-wrap {
+      padding: 0 5% 100px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .scheduler-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--slate-400);
+      margin-bottom: 14px;
+    }
+
+    .scheduler-label::before,
+    .scheduler-label::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--slate-200);
+    }
+
+    .scheduler-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .scheduler-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+    }
+
+    .live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green);
+      background: var(--green-50);
+      border: 1px solid var(--green-100);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    .live-dot::before {
+      content: '';
+      width: 7px;
+      height: 7px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: blink 1.4s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .legend {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--slate-500, #64748b);
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    .legend-dot.avail {
+      background: var(--green);
+    }
+
+    .legend-dot.booked {
+      background: var(--slate-200);
+    }
+
+    .legend-dot.mine {
+      background: #8B5CF6;
+    }
+
+    /* Mobile pitch tabs */
+    .pitch-tabs {
+      display: none;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .pitch-tab {
+      flex: 1;
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 2px solid var(--slate-200);
+      background: white;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-600);
+      cursor: pointer;
+      transition: 0.15s;
+      text-align: center;
+    }
+
+    .pitch-tab.active {
+      border-color: var(--green);
+      color: var(--green);
+      background: var(--green-50);
+    }
+
+    /* Scheduler Grid */
+    .sched-grid {
+      display: grid;
+      grid-template-columns: 90px 1fr 1fr;
+      gap: 10px;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--slate-200);
+      padding: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .sched-col-header {
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .sched-col-header.green-header {
+      background: var(--green-50);
+      color: var(--green);
+      border: 1px solid var(--green-100);
+    }
+
+    .sched-col-header.slate-header {
+      background: var(--slate-100);
+      color: var(--slate-800);
+      border: 1px solid var(--slate-200);
+    }
+
+    .time-label {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 14px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--slate-400);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+    }
+
+    .slot-card {
+      border-radius: 12px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Available slot */
+    .slot-card.available {
+      background: white;
+      border: 2px solid var(--green);
+      box-shadow: 0 2px 8px rgba(5, 150, 105, 0.08);
+    }
+
+    .slot-card.available:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(5, 150, 105, 0.2);
+      border-color: var(--green-light);
+    }
+
+    .slot-card.available:hover .slot-cta {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Booked slot */
+    .slot-card.booked {
+      background: var(--slate-100);
+      border: 2px solid var(--slate-200);
+      cursor: not-allowed;
+    }
+
+    /* Just reserved */
+    .slot-card.reserved {
+      background: #F5F3FF;
+      border: 2px solid #8B5CF6;
+      cursor: not-allowed;
+    }
+
+    .slot-status {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      margin-bottom: 6px;
+    }
+
+    .status-available {
+      background: var(--green-50);
+      color: var(--green);
+      border: 1px solid var(--green-100);
+    }
+
+    .status-booked {
+      background: var(--slate-200);
+      color: var(--slate-500, #64748b);
+    }
+
+    .status-reserved {
+      background: #EDE9FE;
+      color: #7C3AED;
+    }
+
+    .slot-price {
+      font-size: 18px;
+      font-weight: 900;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .slot-card.booked .slot-price {
+      color: var(--slate-400);
+    }
+
+    .slot-team {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--slate-500, #64748b);
+      margin-top: 5px;
+    }
+
+    .slot-deposit {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--green);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .slot-cta {
+      margin-top: 10px;
+      background: var(--green);
+      color: white;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 6px 12px;
+      border-radius: 7px;
+      width: 100%;
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity 0.18s, transform 0.18s;
+    }
+
+    /* ── SECTION LABEL ── */
+    .section-wrap {
+      padding: 90px 5%;
+    }
+
+    .section-wrap.white-bg {
+      background: white;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      color: var(--slate-900);
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      font-size: 16px;
+      color: var(--slate-600);
+      line-height: 1.65;
+      max-width: 520px;
+      margin-bottom: 52px;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .step-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 30px 26px;
+      position: relative;
+      transition: box-shadow 0.2s;
+    }
+
+    .step-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .step-num {
+      font-size: 48px;
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      color: var(--slate-100);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--green-50);
+      border: 1px solid var(--green-100);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 14px;
+    }
+
+    .step-card h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--slate-900);
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .step-card p {
+      font-size: 14px;
+      color: var(--slate-600);
+      line-height: 1.6;
+    }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .testimonial-card {
+      background: white;
+      border: 1px solid var(--slate-200);
+      border-radius: var(--radius);
+      padding: 32px 28px;
+      transition: box-shadow 0.2s;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .stars {
+      font-size: 16px;
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-card blockquote {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--slate-700, #334155);
+      font-weight: 500;
+      margin-bottom: 22px;
+      font-style: normal;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-top: 18px;
+      border-top: 1px solid var(--slate-100);
+    }
+
+    .reviewer-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), #047857);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+
+    .reviewer-name {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--slate-900);
+    }
+
+    .reviewer-meta {
+      font-size: 12px;
+      color: var(--slate-400);
+      font-weight: 500;
+      margin-top: 1px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--slate-900);
+      color: white;
+      padding: 64px 5% 40px;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 52px;
+      padding-bottom: 52px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.09);
+    }
+
+    .footer-logo {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo .accent {
+      color: var(--green-light);
+    }
+
+    .footer-desc {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 22px;
+    }
+
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 16px;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-col ul li {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+    }
+
+    .footer-col ul li a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+
+    .footer-col ul li a:hover {
+      color: var(--green-light);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .contact-item .icon {
+      font-size: 16px;
+      margin-top: 1px;
+      flex-shrink: 0;
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .footer-badge {
+      font-size: 11px;
+      font-weight: 700;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--green-light);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
+    }
+
+    /* ── MODAL ── */
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-backdrop.open {
+      display: flex;
+    }
+
+    .modal {
+      background: white;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 500px;
+      max-height: 92vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      animation: slideUp 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-header {
+      padding: 26px 28px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .modal-title-block h2 {
+      font-size: 20px;
+      font-weight: 900;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .modal-title-block p {
+      font-size: 13px;
+      color: var(--slate-500, #64748b);
+      font-weight: 500;
+    }
+
+    .modal-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1.5px solid var(--slate-200);
+      background: none;
+      cursor: pointer;
+      font-size: 17px;
+      color: var(--slate-500, #64748b);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.15s;
+      flex-shrink: 0;
+    }
+
+    .modal-close:hover {
+      background: var(--slate-100);
+    }
+
+    .modal-body {
+      padding: 22px 28px 28px;
+    }
+
+
+
+    .slot-summary {
+      background: var(--slate-100);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .slot-summary .pitch-emoji {
+      font-size: 24px;
+    }
+
+    .slot-summary-text {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--slate-800);
+    }
+
+    .slot-summary-meta {
+      font-size: 12px;
+      color: var(--slate-500, #64748b);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .bill-block {
+      border: 1px solid var(--slate-200);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .bill-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      font-size: 13.5px;
+      border-bottom: 1px solid var(--slate-100);
+    }
+
+    .bill-row:last-child {
+      border-bottom: none;
+    }
+
+    .bill-row .label {
+      font-weight: 600;
+      color: var(--slate-600);
+    }
+
+    .bill-row .amount {
+      font-weight: 700;
+      color: var(--slate-900);
+    }
+
+    .bill-row.highlight-row {
+      background: var(--green-50);
+    }
+
+    .bill-row.highlight-row .label {
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    .bill-row.highlight-row .amount {
+      color: var(--green);
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .bill-row.on-spot .label {
+      color: var(--slate-500, #64748b);
+    }
+
+    .bill-row.on-spot .amount {
+      color: var(--slate-500, #64748b);
+    }
+
+    .bill-note {
+      font-size: 11.5px;
+      color: var(--slate-500, #64748b);
+      font-weight: 500;
+      line-height: 1.55;
+      margin-bottom: 20px;
+      padding: 10px 14px;
+      background: var(--slate-50, #F8FAFC);
+      border-radius: 8px;
+      border-left: 3px solid var(--slate-300, #CBD5E1);
+    }
+
+    .payment-methods {
+      margin-bottom: 20px;
+    }
+
+    .payment-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate-400);
+      margin-bottom: 10px;
+    }
+
+    .payment-options {
+      display: flex;
+      gap: 8px;
+    }
+
+    .pay-option {
+      flex: 1;
+      border: 2px solid var(--slate-200);
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.15s;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--slate-600);
+      background: white;
+    }
+
+    .pay-option .pay-logo {
+      font-size: 18px;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .pay-option.selected {
+      border-color: var(--green);
+      color: var(--green);
+      background: var(--green-50);
+    }
+
+    .pay-option:hover {
+      border-color: var(--green);
+    }
+
+    .modal-btn {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 12px;
+      border: none;
+      font-size: 15px;
+      font-weight: 800;
+      cursor: pointer;
+      background: var(--green);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+      letter-spacing: -0.01em;
+    }
+
+    .modal-btn:hover {
+      background: #047857;
+      transform: scale(1.02);
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.35);
+    }
+
+    /* Success state */
+    .modal-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 28px;
+      gap: 14px;
+    }
+
+    .modal-success.show {
+      display: flex;
+    }
+
+    .success-icon {
+      width: 72px;
+      height: 72px;
+      background: var(--green-50);
+      border: 2px solid var(--green-100);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+    }
+
+    .success-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--slate-900);
+      letter-spacing: -0.02em;
+    }
+
+    .success-sub {
+      font-size: 14px;
+      color: var(--slate-600);
+      line-height: 1.65;
+    }
+
+    .success-ref {
+      background: var(--slate-100);
+      border-radius: 10px;
+      padding: 12px 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-800);
+      letter-spacing: 0.1em;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* ── FACILITIES STRIP ── */
+    .facilities-strip {
+      background: white;
+      border-top: 1px solid var(--slate-200);
+      border-bottom: 1px solid var(--slate-200);
+      padding: 24px 5%;
+    }
+
+    .facilities-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .facility-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--slate-700, #334155);
+    }
+
+    .facility-item .ficon {
+      width: 36px;
+      height: 36px;
+      background: var(--green-50);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .sched-grid {
+        grid-template-columns: 70px 1fr;
+      }
+
+      .sched-col-header.pitch2,
+      .time-label~.slot-card:nth-child(3n),
+      .col-pitch2 {
+        display: none;
+      }
+
+      .pitch-tabs {
+        display: flex;
+      }
+
+      .hero-actions {
+        gap: 10px;
+      }
+
+      .announce-bar {
+        font-size: 11.5px;
+        gap: 10px;
+      }
+
+      .announce-bar .fire-badge {
+        display: none;
+      }
+
+      .facilities-inner {
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 52px 5% 0;
+      }
+
+      .modal {
+        border-radius: 16px;
+      }
+
+      .modal-body,
+      .modal-header {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .payment-options {
+        flex-direction: column;
+      }
+
+      .pay-option {
+        flex-direction: row;
+        gap: 8px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .pay-option .pay-logo {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announce-bar">
+    <span>⚽ Peak Late-Night Slots Open This Week — <a href="#scheduler">Book Instantly Online</a></span>
+    <span class="fire-badge">🔥 Only 3 slots left tonight</span>
+  </div>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#" class="logo">ArenaOne<span class="logo-dot">.</span> <span class="logo-badge">Lahore</span></a>
+      <ul class="nav-links">
+        <li><a href="#scheduler">Reserve Pitch</a></li>
+        <li><a href="#how">Pricing</a></li>
+        <li><a href="#facilities">Facilities</a></li>
+        <li><a href="#rules">Field Rules</a></li>
+      </ul>
+      <a href="#scheduler" class="nav-cta">Book a Pitch Now →</a>
+      <button class="hamburger" onclick="this.classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-eyebrow">
+      ⚡ Real-Time Pitch Booking · Lahore's Premium Futsal Complex
+    </div>
+    <h1>Stop Chasing Captains<br>on <span class="accent">WhatsApp</span>.<br>Lock in Bookings Instantly.</h1>
+    <p class="hero-sub">Give your teams a seamless, real-time booking experience. Let players view open pitches, secure
+      prime-time slots in under 10 seconds, and eliminate ghost bookings and unread message threads forever.</p>
+    <div class="hero-actions">
+      <a href="#scheduler" class="btn-primary">⚽ View Live Availability</a>
+      <a href="#how" class="btn-ghost">See how it works</a>
+    </div>
+    <div class="hero-trust">
+      <div class="avatars">
+        <span>RA</span><span>ZM</span><span>AK</span><span>SF</span>
+      </div>
+      <span>Trusted by <strong>40+ team captains</strong> across Johar Town &amp; Model Town</span>
+    </div>
+  </section>
+
+  <!-- LIVE SCHEDULER -->
+  <div class="scheduler-wrap" id="scheduler" style="padding-top: 60px;">
+    <div style="text-align:center;" class="scheduler-label">Live Availability Grid</div>
+
+    <div class="scheduler-header">
+      <div>
+        <div class="scheduler-title">Tonight's Pitch Availability</div>
+        <div style="font-size:13px; color:var(--slate-400); margin-top:4px; font-weight:500;">Thursday, 14 June ·
+          Prime-Time Slots</div>
+      </div>
+      <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+        <span class="live-dot">Live Updates</span>
+        <div class="legend">
+          <div class="legend-item">
+            <div class="legend-dot avail"></div> Available
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot booked"></div> Booked
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot mine"></div> Just Reserved
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile tabs -->
+    <div class="pitch-tabs">
+      <button class="pitch-tab active" onclick="switchTab(1, this)">⚽ Pitch 1</button>
+      <button class="pitch-tab" onclick="switchTab(2, this)">🥅 Pitch 2</button>
+    </div>
+
+    <div class="sched-grid" id="schedGrid">
+      <!-- Headers -->
+      <div></div>
+      <div class="sched-col-header green-header col-pitch1">⚽ Pitch 1<br><span
+          style="font-size:10px; font-weight:600; opacity:0.7;">FIFA Grade Grass</span></div>
+      <div class="sched-col-header slate-header col-pitch2">🥅 Pitch 2<br><span
+          style="font-size:10px; font-weight:600; opacity:0.7;">Indoor Cage Arena</span></div>
+
+      <!-- 6:00 PM -->
+      <div class="time-label">6:00 PM</div>
+      <div class="slot-card booked col-pitch1">
+        <span class="slot-status status-booked">🔒 Unavailable — Secured</span>
+        <div class="slot-price">Rs. 4,500</div>
+        <div class="slot-team">Booked — FC Model Town</div>
+      </div>
+      <div class="slot-card available col-pitch2"
+        onclick="openModal('Pitch 2 · Indoor Cage Arena', '6:00 PM – 7:00 PM', '4500', '🥅')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 4,500/hr</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 450</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+
+      <!-- 7:00 PM -->
+      <div class="time-label">7:00 PM</div>
+      <div class="slot-card available col-pitch1"
+        onclick="openModal('Pitch 1 · FIFA Grade Grass', '7:00 PM – 8:00 PM', '4500', '⚽')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 4,500/hr</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 450</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+      <div class="slot-card booked col-pitch2">
+        <span class="slot-status status-booked">🔒 Unavailable — Secured</span>
+        <div class="slot-price">Rs. 4,500</div>
+        <div class="slot-team">Booked — Johar Strikers</div>
+      </div>
+
+      <!-- 8:00 PM -->
+      <div class="time-label">8:00 PM</div>
+      <div class="slot-card booked col-pitch1">
+        <span class="slot-status status-booked">🔒 Unavailable — Secured</span>
+        <div class="slot-price">Rs. 4,500</div>
+        <div class="slot-team">Booked — DHA Wolves</div>
+      </div>
+      <div class="slot-card available col-pitch2"
+        onclick="openModal('Pitch 2 · Indoor Cage Arena', '8:00 PM – 9:00 PM', '4500', '🥅')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 4,500/hr</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 450</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+
+      <!-- 9:00 PM -->
+      <div class="time-label">9:00 PM</div>
+      <div class="slot-card available col-pitch1"
+        onclick="openModal('Pitch 1 · FIFA Grade Grass', '9:00 PM – 10:00 PM', '5000', '⚽')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 5,000/hr</div>
+        <div style="font-size:10px; font-weight:700; color:var(--amber); margin-top:2px;">🔥 Peak Hour</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 500</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+      <div class="slot-card available col-pitch2"
+        onclick="openModal('Pitch 2 · Indoor Cage Arena', '9:00 PM – 10:00 PM', '5000', '🥅')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 5,000/hr</div>
+        <div style="font-size:10px; font-weight:700; color:var(--amber); margin-top:2px;">🔥 Peak Hour</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 500</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+
+      <!-- 10:00 PM -->
+      <div class="time-label">10:00 PM</div>
+      <div class="slot-card booked col-pitch1">
+        <span class="slot-status status-booked">🔒 Unavailable — Secured</span>
+        <div class="slot-price">Rs. 5,000</div>
+        <div class="slot-team">Booked — Cavalry FC</div>
+      </div>
+      <div class="slot-card available col-pitch2"
+        onclick="openModal('Pitch 2 · Indoor Cage Arena', '10:00 PM – 11:00 PM', '5000', '🥅')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 5,000/hr</div>
+        <div style="font-size:10px; font-weight:700; color:var(--amber); margin-top:2px;">🔥 Peak Hour</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 500</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+
+      <!-- 11:00 PM -->
+      <div class="time-label">11:00 PM</div>
+      <div class="slot-card available col-pitch1"
+        onclick="openModal('Pitch 1 · FIFA Grade Grass', '11:00 PM – 12:00 AM', '4500', '⚽')">
+        <span class="slot-status status-available">✓ Open</span>
+        <div class="slot-price">Rs. 4,500/hr</div>
+        <div class="slot-deposit">🔒 Reserve for just Rs. 450</div>
+        <button class="slot-cta">Reserve This Slot</button>
+      </div>
+      <div class="slot-card booked col-pitch2">
+        <span class="slot-status status-booked">🔒 Unavailable — Secured</span>
+        <div class="slot-price">Rs. 4,500</div>
+        <div class="slot-team">Booked — Late Ballers FC</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FACILITIES STRIP -->
+  <div class="facilities-strip" id="facilities">
+    <div class="facilities-inner">
+      <div class="facility-item">
+        <div class="ficon">🌱</div><span>FIFA Grade Artificial Grass</span>
+      </div>
+      <div class="facility-item">
+        <div class="ficon">💡</div><span>Pro Floodlit Arenas</span>
+      </div>
+      <div class="facility-item">
+        <div class="ficon">🚿</div><span>Premium Changing Rooms</span>
+      </div>
+      <div class="facility-item">
+        <div class="ficon">🅿️</div><span>Secure On-Site Parking</span>
+      </div>
+      <div class="facility-item">
+        <div class="ficon">🥤</div><span>Sports Café & Hydration Bar</span>
+      </div>
+      <div class="facility-item">
+        <div class="ficon">📹</div><span>HD Match Recording Available</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section-wrap" id="how">
+    <div class="section-inner">
+      <div class="section-eyebrow">Simple by Design</div>
+      <h2 class="section-title">Three steps. Under 90 seconds.</h2>
+      <p class="section-sub">We built the booking flow for football captains who don't have time to waste. Here's
+        exactly how it works, from open grid to locked slot.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-num">01</div>
+          <div class="step-icon">👁️</div>
+          <h3>See What's Live</h3>
+          <p>Open the live grid and instantly see which slots are taken tonight and which are still yours to claim — no
+            phone calls, no waiting on a reply.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">🔒</div>
+          <div class="step-num">02</div>
+          <h3>Lock It with 10%</h3>
+          <p>Tap your slot. Pay just 10% online via JazzCash, Nayapay, or card to permanently secure your hour.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-icon">⚽</div>
+          <div class="step-num">03</div>
+          <h3>Show Up & Play</h3>
+          <p>Arrive at ArenaOne, clear the remaining balance at the front desk, and walk straight onto your pitch. No
+            confusion. No double bookings. Just football.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section-wrap white-bg" style="padding-top: 80px; padding-bottom: 80px;">
+    <div class="section-inner">
+      <div class="section-eyebrow">From the Community</div>
+      <h2 class="section-title">Captains love it. Organizers love it more.</h2>
+      <p class="section-sub">Don't take our word for it — hear from the people running weekly leagues and coordinating
+        teams across Lahore every week.</p>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>"Managing our corporate league used to mean hundreds of WhatsApp messages every single Tuesday.
+            Missed confirmations, ghost bookings, angry captains. Moving to a live grid booking saved us hours of
+            headache and kept every team happy."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar">RA</div>
+            <div>
+              <div class="reviewer-name">Raza Ahmed</div>
+              <div class="reviewer-meta">League Organizer · Model Town, Lahore</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">⭐⭐⭐⭐⭐</div>
+          <blockquote>"Booking the 9 PM slot here has never been easier. Paying just 10% to lock down the field means
+            our slot is guaranteed before anyone else grabs it, and we collect the remaining cash from the guys during
+            warm-up. Seamless every time."</blockquote>
+          <div class="reviewer">
+            <div class="reviewer-avatar">ZM</div>
+            <div>
+              <div class="reviewer-name">Zain M.</div>
+              <div class="reviewer-meta">Captain, FC Johar Town</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="rules">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">ArenaOne<span class="accent">.</span> Lahore</div>
+          <p class="footer-desc">Lahore's premier futsal and sports turf complex — built for serious players, local
+            leagues, and anyone who believes the beautiful game deserves a beautiful experience.</p>
+          <a href="#scheduler" class="btn-primary" style="display:inline-flex; font-size:14px; padding:12px 22px;">⚽
+            Book a Pitch Tonight</a>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#scheduler">Live Availability</a></li>
+            <li><a href="#how">How Booking Works</a></li>
+            <li><a href="#facilities">Our Facilities</a></li>
+            <li><a href="#rules">Field Rules</a></li>
+            <li><a href="#">Corporate Leagues</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get in Touch</h4>
+          <div class="contact-item"><span class="icon">📍</span><span>Block H-3, Near Emporium Mall, Johar Town, Lahore,
+              Punjab</span></div>
+          <div class="contact-item"><span class="icon">📞</span><span>+92 300 1122334 (Booking Desk)</span></div>
+          <div class="contact-item"><span class="icon">⏰</span><span>Open Daily · 5:00 PM – 2:00 AM</span></div>
+          <div class="contact-item"><span class="icon">📧</span><span>bookings@arenaone.pk</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 ArenaOne Lahore. All rights reserved. Ghost bookings not accepted.</p>
+        <span class="footer-badge">⚽ 40+ Teams Trust ArenaOne</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div class="modal-backdrop" id="modalBackdrop" onclick="handleBackdropClick(event)">
+    <div class="modal" id="modal">
+      <!-- Main booking view -->
+      <div id="modalMain">
+        <div class="modal-header">
+          <div class="modal-title-block">
+            <h2>Reserve This Pitch Slot</h2>
+            <p id="modalSubtitle">Complete your deposit to lock in your booking.</p>
+          </div>
+          <button class="modal-close" onclick="closeModal()">✕</button>
+        </div>
+        <div class="modal-body">
+
+          <!-- Slot Summary -->
+          <div class="slot-summary">
+            <span class="pitch-emoji" id="modalEmoji">⚽</span>
+            <div>
+              <div class="slot-summary-text" id="modalPitchName">Pitch 1 · FIFA Grade Grass</div>
+              <div class="slot-summary-meta" id="modalTimeSlot">9:00 PM – 10:00 PM · Thursday, 14 June 2025</div>
+            </div>
+          </div>
+
+          <!-- Bill breakdown -->
+          <div class="bill-block">
+            <div class="bill-row">
+              <span class="label">Full Pitch Booking Fee</span>
+              <span class="amount" id="billTotal">Rs. 4,500</span>
+            </div>
+            <div class="bill-row highlight-row">
+              <span class="label">💳 Pay Now (10% Deposit to Lock Slot)</span>
+              <span class="amount" id="billDeposit">Rs. 450</span>
+            </div>
+            <div class="bill-row on-spot">
+              <span class="label">💵 Remaining Balance (Pay On-Spot)</span>
+              <span class="amount" id="billBalance">Rs. 4,050</span>
+            </div>
+          </div>
+
+          <p class="bill-note">
+            ℹ️ The remaining balance must be cleared at the front desk <strong>before entering the arena and starting
+              play</strong>. Your 10% deposit is non-refundable for no-shows.
+          </p>
+
+          <!-- Payment methods -->
+          <div class="payment-methods">
+            <div class="payment-label">Choose Payment Method</div>
+            <div class="payment-options">
+              <div class="pay-option selected" onclick="selectPay(this)">
+                <span class="pay-logo">💚</span>Nayapay
+              </div>
+              <div class="pay-option" onclick="selectPay(this)">
+                <span class="pay-logo">📲</span>JazzCash
+              </div>
+              <div class="pay-option" onclick="selectPay(this)">
+                <span class="pay-logo">💳</span>Card
+              </div>
+            </div>
+          </div>
+
+          <button class="modal-btn" onclick="confirmBooking()">
+            🔒 Confirm & Pay <span id="confirmAmount">Rs. 450</span> Now
+          </button>
+        </div>
+      </div>
+
+      <!-- Success view -->
+      <div class="modal-success" id="modalSuccess">
+        <div class="success-icon">✅</div>
+        <div class="success-title">Pitch Locked! You're On.</div>
+        <p class="success-sub">Your slot is confirmed and secured. Show up at ArenaOne, pay the remaining balance at the
+          desk, and take the field.</p>
+        <div class="success-ref" id="successRef">Booking Ref: AO-240614-7831</div>
+        <button class="modal-btn" onclick="closeModal()" style="background: var(--slate-900);">Done — See You Tonight
+          ⚽</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile tab script -->
+  <script>
+    let activePitch = 1;
+    function switchTab(pitch, btn) {
+      activePitch = pitch;
+      document.querySelectorAll('.pitch-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      if (pitch === 1) {
+        document.querySelectorAll('.col-pitch1').forEach(el => el.style.display = '');
+        document.querySelectorAll('.col-pitch2').forEach(el => el.style.display = 'none');
+        document.getElementById('schedGrid').style.gridTemplateColumns = '70px 1fr';
+      } else {
+        document.querySelectorAll('.col-pitch1').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.col-pitch2').forEach(el => el.style.display = '');
+        document.getElementById('schedGrid').style.gridTemplateColumns = '70px 1fr';
+      }
+    }
+
+    // Apply mobile default on small screens
+    function applyMobileGrid() {
+      if (window.innerWidth <= 700) {
+        document.querySelectorAll('.col-pitch2').forEach(el => el.style.display = 'none');
+        document.getElementById('schedGrid').style.gridTemplateColumns = '70px 1fr';
+      } else {
+        document.querySelectorAll('.col-pitch1, .col-pitch2').forEach(el => el.style.display = '');
+        document.getElementById('schedGrid').style.gridTemplateColumns = '90px 1fr 1fr';
+      }
+    }
+    window.addEventListener('resize', applyMobileGrid);
+    applyMobileGrid();
+
+    // Modal logic
+    let currentSlotEl = null;
+
+    function openModal(pitch, time, price, emoji) {
+      const total = parseInt(price);
+      const deposit = Math.round(total * 0.1);
+      const balance = total - deposit;
+
+      document.getElementById('modalPitchName').textContent = pitch;
+      document.getElementById('modalTimeSlot').textContent = time + ' · Thursday, 14 June 2025';
+      document.getElementById('modalEmoji').textContent = emoji;
+      document.getElementById('billTotal').textContent = 'Rs. ' + total.toLocaleString();
+      document.getElementById('billDeposit').textContent = 'Rs. ' + deposit.toLocaleString();
+      document.getElementById('billBalance').textContent = 'Rs. ' + balance.toLocaleString();
+      document.getElementById('confirmAmount').textContent = 'Rs. ' + deposit.toLocaleString();
+      document.getElementById('modalMain').style.display = 'block';
+      document.getElementById('modalSuccess').classList.remove('show');
+
+      document.getElementById('modalBackdrop').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function handleBackdropClick(e) {
+      if (e.target === document.getElementById('modalBackdrop')) closeModal();
+    }
+
+    function selectPay(el) {
+      document.querySelectorAll('.pay-option').forEach(p => p.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function confirmBooking() {
+      const ref = 'AO-' + Math.floor(Math.random() * 900000 + 100000);
+      document.getElementById('successRef').textContent = 'Booking Ref: ' + ref;
+      document.getElementById('modalMain').style.display = 'none';
+      document.getElementById('modalSuccess').classList.add('show');
+    }
+  </script>
+
+</body>
+
+</html>
